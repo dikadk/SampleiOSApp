@@ -30,5 +30,18 @@ class SampleAppTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testMealInitializationFails(){
+        // Negative rating
+        let negativeRatingMeal = Meal.init(name: "Negative", photo: nil, rating: -1)
+        XCTAssertNil(negativeRatingMeal)
+        
+        // Empty String
+        let emptyStringMeal = Meal.init(name: "", photo: nil, rating: 0)
+        XCTAssertNil(emptyStringMeal)
+        
+        let largeRatingMeal = Meal.init(name: "Large", photo: nil, rating: 6)
+        XCTAssertNil(largeRatingMeal)
+    }
 
 }
